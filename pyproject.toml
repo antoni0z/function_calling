@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "function-calling"
+version = "0.1.0"
+description = "Notebook collection showing function calling, agents and llm evals. Used as learning to see what is possible with some of this new techniques."
+authors = ["antoni0z <antonioprofesional@proton.me>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = "^2.7.1"
+instructor = "^1.2.5"
+openai = "^1.26.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
