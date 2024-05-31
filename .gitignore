@@ -1,3 +1,5 @@
 .env
 instructor_cookbook
 anthropic_cookbook
+venv
+docs.txt
