@@ -3,3 +3,5 @@ instructor_cookbook
 anthropic_cookbook
 venv
 docs.txt
+explore.ipynb
+workoutlib.db
