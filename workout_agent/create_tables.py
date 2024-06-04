@@ -5,10 +5,10 @@ con = sqlite3.connect("workout_agent/workoutlib.db")
 cur = con.cursor()
 
 
-def insert_muscle_category(name: str, description: str):
+def insert_movement_category(name: str, description: str):
     cur.execute(
         f"""
-        INSERT INTO muscle_category(name, description) 
+        INSERT INTO movement_category(name, description) 
                VALUES ('{name}', '{description}')
         """
     )
@@ -28,7 +28,7 @@ def insert_exercise_type(name: str, description: str):
 
 
 cur.execute("""
-            CREATE TABLE muscle_category(
+            CREATE TABLE movement_category(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL UNIQUE,
                 description TEXT NOT NULL
@@ -47,12 +47,12 @@ cur.execute("""
                 id INTEGER PRIMARY KEY AUTOINCREMENT, 
                 name TEXT NOT NULL,
                 description TEXT,
-                muscle_category_id INTEGER NOT NULL,
+                movement_category_id INTEGER NOT NULL,
                 exercise_type_id INTEGER NOT NULL,
                 parent_id INTEGER,
                 FOREIGN KEY (parent_id) REFERENCES exercises(id),
                 FOREIGN KEY (exercise_type_id) REFERENCES exercise_type(id),
-                FOREIGN KEY (muscle_category_id) REFERENCES muscle_category(id)
+                FOREIGN KEY (movement_category_id) REFERENCES movement_category(id)
             ) STRICT;""")
 
 exercise_categories =  {
@@ -79,7 +79,7 @@ exercise_types = {
 
 
 for name, description in exercise_categories.items():
-    insert_muscle_category(name, description)
+    insert_movement_category(name, description)
 
 for name, description in exercise_types.items():
     insert_exercise_type(name, description)
